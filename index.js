@@ -23,7 +23,7 @@ app.use(
 
 app.use(express.json());
 
-// Routes
+//All Routes
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin/category", categoryRoutes);
 app.use("/api/admin/products", productRoutes);
