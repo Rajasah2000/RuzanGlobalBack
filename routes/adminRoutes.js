@@ -10,7 +10,7 @@ const { DeleteUserBooking } = require("../controllers/userController");
 
 const protect = require("../middleware/authMiddleware");
 
-// Login route and register for admins dd ds d ds
+// Login route and register for admins dd ds d ds dfdfdfd f fdf fd
 router.post("/register", adminRegister);
 router.post("/login", adminLogin);
 router.get("/allregisteruser", protect, getAllRegisteredUsers);
