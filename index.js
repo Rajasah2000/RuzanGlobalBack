@@ -64,7 +64,12 @@ connectDB();
 // Enable CORS for all routes with updated configuration
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://3.110.81.222:3000"], // Replace with your frontend domains
+    origin: [
+      "http://localhost:3000",
+      "http://3.110.81.222:3000",
+      "http://ruzanglobal.com",
+      "https://ruzanglobal.com",
+    ], // Replace with your frontend domains
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true, // Required for cookies and auth headers
