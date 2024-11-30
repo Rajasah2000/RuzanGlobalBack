@@ -66,7 +66,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "http://13.232.149.165:3000",
+      // "http://13.232.149.165:3000",
+      "http://13.232.230.107:3000",
       "http://ruzanglobal.com",
       "https://ruzanglobal.com",
     ], // Replace with your frontend domains
