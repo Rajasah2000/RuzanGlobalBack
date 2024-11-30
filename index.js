@@ -65,12 +65,14 @@ connectDB();
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
-      // "http://13.232.149.165:3000",
-      "http://13.234.225.112:3000",
-      "http://ruzanglobal.com",
-      "https://ruzanglobal.com",
-    ], // Replace with your frontend domains
+      "http://localhost:3000", // Local development frontend
+      "http://3.111.171.1:3000", // Production IP of the frontend
+      "https://api.ruzanglobal.com", // API subdomain
+      "http://ruzanglobal.com", // Main domain (HTTP)
+      "https://ruzanglobal.com", // Main domain (HTTPS)
+      "https://www.ruzanglobal.com", // With `www` if it is being used
+    ],
+
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true, // Required for cookies and auth headers
