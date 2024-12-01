@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema(
     number: {
       type: String,
       required: true,
-      unique: true, // Ensures each number is unique
+      // unique: true, // Ensures each number is unique
     },
     description: {
       type: String,

@@ -30,13 +30,15 @@ const RegisterUser = async (req, res) => {
   const { name, number, description, numberofstar, registeredBy } = req.body;
 
   try {
-    // Check if the user already exists
-    const existingUser = await User.findOne({ number });
-    if (existingUser) {
-      return res
-        .status(400)
-        .json({ msg: "User already exists", status: false });
-    }
+    // Check if the user with the same number already exists under the same admin (registeredBy)
+    // const existingUser = await User.findOne({ number, registeredBy });
+
+    // if (existingUser) {
+    //   return res.status(400).json({
+    //     msg: "User already exists",
+    //     status: false,
+    //   });
+    // }
 
     // Register new user and associate with the logged-in admin
     const newUser = await User.create({
@@ -52,11 +54,13 @@ const RegisterUser = async (req, res) => {
       status: true,
       data: newUser,
     });
+    // console.log("pk", res);
   } catch (error) {
     console.error(error);
     res.status(500).json({ msg: "Server error", status: false });
   }
 };
+
 // const AdminGetAllUser = async (req, res) => {
 //   try {
 //     const users = await User.find(); // Fetch all users from the User collection
