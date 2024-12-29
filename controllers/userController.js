@@ -26,27 +26,54 @@ const User = require("../models/userModel");
 //     });
 //   }
 // };
+
+// const RegisterUser = async (req, res) => {
+//   const { name, number, description, numberofstar, registeredBy } = req.body;
+
+//   try {
+//     // Check if the user with the same number already exists under the same admin (registeredBy)
+//     // const existingUser = await User.findOne({ number, registeredBy });
+
+//     // if (existingUser) {
+//     //   return res.status(400).json({
+//     //     msg: "User already exists",
+//     //     status: false,
+//     //   });
+//     // }
+
+//     // Register new user and associate with the logged-in admin
+//     const newUser = await User.create({
+//       name,
+//       number,
+//       description,
+//       numberofstar,
+//       registeredBy, // Link user to the admin ID
+//     });
+
+//     console.log("resddddddddddddddddddd", res);
+
+//     res.status(201).json({
+//       msg: "User registered successfully",
+//       status: true,
+//       data: newUser,
+//     });
+//     // console.log("pk", res);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ msg: "Serversssssssssss error", status: false });
+//   }
+// };
+
 const RegisterUser = async (req, res) => {
   const { name, number, description, numberofstar, registeredBy } = req.body;
 
   try {
-    // Check if the user with the same number already exists under the same admin (registeredBy)
-    // const existingUser = await User.findOne({ number, registeredBy });
-
-    // if (existingUser) {
-    //   return res.status(400).json({
-    //     msg: "User already exists",
-    //     status: false,
-    //   });
-    // }
-
-    // Register new user and associate with the logged-in admin
     const newUser = await User.create({
       name,
       number,
       description,
       numberofstar,
-      registeredBy, // Link user to the admin ID
+      registeredBy,
     });
 
     res.status(201).json({
@@ -54,12 +81,12 @@ const RegisterUser = async (req, res) => {
       status: true,
       data: newUser,
     });
-    // console.log("pk", res);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ msg: "Server error", status: false });
   }
 };
+
+module.exports = RegisterUser;
 
 // const AdminGetAllUser = async (req, res) => {
 //   try {

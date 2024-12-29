@@ -8,8 +8,6 @@ const userSchema = new mongoose.Schema(
     },
     number: {
       type: String,
-      required: true,
-      // unique: true, // Ensures each number is unique
     },
     description: {
       type: String,
@@ -21,7 +19,7 @@ const userSchema = new mongoose.Schema(
     },
     registeredBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Admin", // Reference to the Admin who registered the user
+      ref: "Admin",
     },
   },
   {
